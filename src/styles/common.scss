@@ -1,0 +1,9 @@
+@import '@/styles/custom-variables.scss';
+
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  padding-bottom: constant(safe-area-inset-bottom); // 兼容 iOS 11.2 以下版本
+  padding-bottom: env(safe-area-inset-bottom); // 兼容 iOS 11.2 及以上版本
+  box-sizing: border-box;
+}

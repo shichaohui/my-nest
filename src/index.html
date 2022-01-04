@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta
+      content="width=device-width,initial-scale=1,user-scalable=no"
+      name="viewport"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no,address=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title></title>
+    <script>
+      function initFontSize() {
+        var el = window.document.documentElement;
+        var width = el.getBoundingClientRect().width;
+        if (width >= 640) {
+          el.style.fontSize = '40px';
+        } else if (width <= 320) {
+          el.style.fontSize = '20px';
+        } else {
+          el.style.fontSize = (width / 320) * 20 + 'px';
+        }
+      }
+      window.addEventListener('resize', function() {
+        initFontSize();
+      });
+      initFontSize();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+@import '@/styles/custom-variables.scss';
+
+$color-brand: $primary-color;
+$color-brand-light: $primary-color-light;
+$color-brand-dark: $primary-color-dark;
+
+@import '~taro-ui/dist/style/index.scss';
