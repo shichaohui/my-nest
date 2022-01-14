@@ -101,7 +101,7 @@ const WXAvatar: FC<{}> = () => {
           onTouchMove={handleAvatarTouchMove}
           onTouchEnd={handleAvatarTouchEnd}
         />
-        <Image className={style.avatarMask} src={avatarMask.thumbnail} />
+        <Image className={style.avatarMask} src={avatarMask.url} />
       </View>
       <View className={style.avatarMaskList}>
         {avatarMaskList.map((item, index) => (
