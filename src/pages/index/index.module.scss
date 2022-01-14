@@ -1,1 +1,20 @@
 @import '@/styles/common.scss';
+
+.tool {
+  padding: 20px;
+  border: 1px solid $color-primary-dark;
+  border-radius: 12px;
+  box-shadow: $box-shadow-arround-primary-small;
+  background: $card-bg-color;
+
+  .name {
+    color: $text-color-primary;
+    font-size: 32px;
+  }
+
+  .desc {
+    margin-top: 16px;
+    font-size: 28px;
+    color: $text-color-secondly;
+  }
+}
