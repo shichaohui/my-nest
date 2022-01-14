@@ -1,3 +1,30 @@
-$primary-color: #f58220;
-$primary-color-light: #faa755;
-$primary-color-dark: #f47920;
+$color-primary: #f58220;
+$color-primary-light: #faa755;
+$color-primary-dark: #f47920;
+
+$text-color-primary: #262626;
+$text-color-secondly: #606266;
+$text-color-light: #ffffff;
+$text-color-placeholder: #606266;
+$text-color-tips: #a1a3a6;
+
+$bg-color-light: #f2eada;
+$bg-color-light-20: rgba($bg-color-light, 0.2);
+
+$card-bg-color: #fab27b;
+
+$border-color: #e8e8e8;
+
+$border-1: 1px solid $border-color;
+$border-primary-1: 1px solid $color-primary;
+
+$border-radius-small: 4px;
+$border-radius: 8px;
+$border-radius-large: 12px;
+
+$box-shadow-arround-primary: 0 0 20px 5px $color-primary;
+$box-shadow-arround-primary-small: 0 0 10px 2px $color-primary;
+
+$page-space: 32px;
+$safe-bottom: constant(safe-area-inset-bottom); // 兼容 iOS 11.2 以下版本
+$safe-bottom: env(safe-area-inset-bottom); // 兼容 iOS 11.2 及以上版本

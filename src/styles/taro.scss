@@ -1,7 +1,10 @@
 @import '@/styles/custom-variables.scss';
 
-$color-brand: $primary-color;
-$color-brand-light: $primary-color-light;
-$color-brand-dark: $primary-color-dark;
+$color-brand: $color-primary;
+$color-brand-light: $color-primary-light;
+$color-brand-dark: $color-primary-dark;
+
+$at-button-height: 80px !default;
+$at-button-height-sm: 60px !default;
 
 @import '~taro-ui/dist/style/index.scss';
