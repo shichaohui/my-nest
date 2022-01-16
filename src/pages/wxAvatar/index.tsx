@@ -119,17 +119,7 @@ const WXAvatar: FC<{}> = () => {
           />
         ))}
       </View>
-      <View className={style.maskSource}>部分素材来自于 zh.pngtree.com</View>
       <View className={style.actionList}>
-        <AtButton
-          className={style.action}
-          type="primary"
-          circle
-          disabled={!avatarUrl}
-          onClick={handleSaveOriginalAvatar}
-        >
-          保存原头像
-        </AtButton>
         <AtButton
           className={style.action}
           type="primary"
@@ -143,10 +133,23 @@ const WXAvatar: FC<{}> = () => {
           type="primary"
           circle
           disabled={!avatarUrl}
+          onClick={handleSaveOriginalAvatar}
+        >
+          保存原头像
+        </AtButton>
+        <AtButton
+          className={style.action}
+          type="primary"
+          circle
+          disabled={!avatarUrl}
           onClick={handleSaveAvatar}
         >
           保存新头像
         </AtButton>
+      </View>
+      <View className={style.tipsList}>
+        <View className={style.tips}>可拖动调整头像位置</View>
+        <View className={style.tips}>素材来自于 zh.pngtree.com</View>
       </View>
       <AvatarPainter
         ref={avatarPainterInstanceRef}

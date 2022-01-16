@@ -50,12 +50,6 @@
   }
 }
 
-.maskSource {
-  margin-top: 10px;
-  color: $text-color-tips;
-  font-size: 20px;
-}
-
 .actionList {
   margin-top: 40px;
   display: flex;
@@ -66,5 +60,25 @@
 
   .action + .action {
     margin-left: $page-space;
+  }
+}
+
+.tipsList {
+  margin-top: 30px;
+
+  .tips {
+    margin-top: 10px;
+    color: $text-color-tips;
+    font-size: 24px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: currentColor;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
   }
 }
