@@ -3,12 +3,18 @@ import { FC, useCallback, useMemo, useRef, useState } from 'react';
 import { Image, ITouchEvent, View } from '@tarojs/components';
 import { AtButton } from 'taro-ui';
 import { saveImageToPhotosAlbum } from '@/utils/image';
+import throttle from '@/utils/throttle';
 import style from './index.module.scss';
 import AvatarPainter, {
   AvatarPainterInstance,
   AvatarPosition
 } from './AvatarPainter';
 import mask from './mask';
+
+const initAvatarPosition: AvatarPosition = {
+  top: 0,
+  left: 0
+};
 
 /** 微信头像 */
 const WXAvatar: FC<{}> = () => {
@@ -24,10 +30,9 @@ const WXAvatar: FC<{}> = () => {
   // 上次触摸头像的事件
   const prevAvatarTouchEventRef = useRef<ITouchEvent>();
   // 头像位置
-  const [avatarPosition, setAvatarPosition] = useState<AvatarPosition>({
-    top: 0,
-    left: 0
-  });
+  const [avatarPosition, setAvatarPosition] = useState<AvatarPosition>(
+    initAvatarPosition
+  );
 
   // 头像绘制组件
   const avatarPainterInstanceRef = useRef<AvatarPainterInstance>(null);
@@ -41,33 +46,33 @@ const WXAvatar: FC<{}> = () => {
   }, []);
 
   // 触摸并移动头像
-  const handleAvatarTouchMove = useCallback(
-    (event: ITouchEvent) => {
+  const handleAvatarTouchMove = useMemo(() => {
+    return throttle((event: ITouchEvent) => {
       if (!prevAvatarTouchEventRef.current) {
         prevAvatarTouchEventRef.current = event;
         return;
       }
       const startTouch = prevAvatarTouchEventRef.current.touches[0];
       const touch = event.touches[0];
-      setAvatarPosition({
-        top: avatarPosition.top + touch.pageY - startTouch.pageY,
-        left: avatarPosition.left + touch.pageX - startTouch.pageX
-      });
+      setAvatarPosition(position => ({
+        top: position.top + touch.pageY - startTouch.pageY,
+        left: position.left + touch.pageX - startTouch.pageX
+      }));
       prevAvatarTouchEventRef.current = event;
-    },
-    [prevAvatarTouchEventRef, avatarPosition]
-  );
+    }, 66);
+  }, []);
 
   // 触摸头像结束
   const handleAvatarTouchEnd = useCallback(() => {
     prevAvatarTouchEventRef.current = undefined;
-  }, [prevAvatarTouchEventRef]);
+  }, []);
 
   // 选择挂件
   const handleClickAvatarMask = useCallback(
     (event: ITouchEvent) => {
       const { index } = event.currentTarget.dataset;
       setAvatarMask(avatarMaskList[index]);
+      setAvatarPosition(initAvatarPosition);
     },
     [avatarMaskList]
   );
@@ -98,8 +103,8 @@ const WXAvatar: FC<{}> = () => {
           className={style.avatar}
           style={{ top: avatarPosition.top, left: avatarPosition.left }}
           src={avatarUrl}
-          onTouchMove={handleAvatarTouchMove}
-          onTouchEnd={handleAvatarTouchEnd}
+          onTouchMove={!!avatarUrl ? handleAvatarTouchMove : undefined}
+          onTouchEnd={!!avatarUrl ? handleAvatarTouchEnd : undefined}
         />
         <Image className={style.avatarMask} src={avatarMask.url} />
       </View>
