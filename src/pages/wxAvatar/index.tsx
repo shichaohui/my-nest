@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro';
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { FC, useCallback, useMemo, useRef, useState } from 'react';
 import { Image, ITouchEvent, View } from '@tarojs/components';
 import { AtButton } from 'taro-ui';
@@ -9,7 +9,7 @@ import AvatarPainter, {
   AvatarPainterInstance,
   AvatarPosition
 } from './AvatarPainter';
-import mask from './mask';
+import config from './config';
 
 const initAvatarPosition: AvatarPosition = {
   top: 0,
@@ -22,7 +22,7 @@ const WXAvatar: FC<{}> = () => {
   const avatarPreviewSize = 264;
   const avatarDrawSize = 840;
   // 头像挂件列表
-  const avatarMaskList = useMemo(() => mask.getList(), []);
+  const avatarMaskList = useMemo(() => config.getMaskList(), []);
   // 微信头像
   const [avatarUrl, setAvatarUrl] = useState('');
   // 选中的挂件
@@ -33,9 +33,14 @@ const WXAvatar: FC<{}> = () => {
   const [avatarPosition, setAvatarPosition] = useState<AvatarPosition>(
     initAvatarPosition
   );
-
   // 头像绘制组件
   const avatarPainterInstanceRef = useRef<AvatarPainterInstance>(null);
+
+  // 分享给好友
+  useShareAppMessage(() => config.getShareInfo());
+
+  // 分享到朋友圈
+  useShareTimeline(() => config.getShareInfo());
 
   // 获取用户信息
   const handleGetUserInfo = useCallback(async () => {
