@@ -1,7 +1,8 @@
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { FC, useCallback, useMemo, useRef, useState } from 'react';
-import { Image, ITouchEvent, View } from '@tarojs/components';
+import { ITouchEvent, View } from '@tarojs/components';
 import { AtButton } from 'taro-ui';
+import LazyImage from '@/components/LazyImage';
 import { saveImageToPhotosAlbum } from '@/utils/image';
 import throttle from '@/utils/throttle';
 import style from './index.module.scss';
@@ -105,18 +106,18 @@ const WXAvatar: FC<{}> = () => {
           height: `${avatarPreviewSize}px`
         }}
       >
-        <Image
+        <LazyImage
           className={style.avatar}
           style={{ top: avatarPosition.top, left: avatarPosition.left }}
           src={avatarUrl}
           onTouchMove={!!avatarUrl ? handleAvatarTouchMove : undefined}
           onTouchEnd={!!avatarUrl ? handleAvatarTouchEnd : undefined}
         />
-        <Image className={style.avatarMask} src={avatarMask.url} />
+        <LazyImage className={style.avatarMask} src={avatarMask.url} />
       </View>
       <View className={style.avatarMaskList}>
         {avatarMaskList.map((item, index) => (
-          <Image
+          <LazyImage
             key={item.thumbnail}
             className={style.avatarMask}
             src={item.thumbnail}
