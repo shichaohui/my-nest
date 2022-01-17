@@ -1,11 +1,19 @@
-/** 分享标题 */
-export const shareTitle = '新年新气象，一起来换个新头像';
+import { ShareAppMessageReturn, ShareTimelineReturnObject } from '@tarojs/taro';
 
-/** 分享图 */
-export const shareImage = 'https://s4.ax1x.com/2022/01/16/7N4uxU.png';
+/** 分享好友信息 */
+const shareFriendInfo: ShareAppMessageReturn = {
+  title: '新年新气象，快来换个新头像吧',
+  imageUrl: 'https://s4.ax1x.com/2022/01/16/7N4uxU.png'
+};
+
+/** 分享朋友圈信息 */
+const shareTimelineInfo: ShareTimelineReturnObject = {
+  title: '新年新气象，快来换个新头像吧',
+  imageUrl: 'https://s4.ax1x.com/2022/01/17/7Ut7Ed.png'
+};
 
 /** 挂件列表 */
-export const maskList: WXAvatar.Mask[] = [
+const maskList: WXAvatar.Mask[] = [
   {
     url: 'https://s4.ax1x.com/2022/01/14/7392HU.png',
     thumbnail: 'https://s4.ax1x.com/2022/01/14/78tKTf.png'
@@ -71,3 +79,9 @@ export const maskList: WXAvatar.Mask[] = [
     thumbnail: 'https://s4.ax1x.com/2022/01/14/78ts1J.png'
   }
 ];
+
+export default {
+  shareFriendInfo,
+  shareTimelineInfo,
+  maskList
+};

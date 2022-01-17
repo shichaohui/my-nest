@@ -1,18 +1,20 @@
 import { ShareAppMessageReturn, ShareTimelineReturnObject } from '@tarojs/taro';
-import { maskList, shareImage, shareTitle } from './newYear';
+import newYear from './newYear';
 
-function getShareInfo(): ShareAppMessageReturn | ShareTimelineReturnObject {
-  return {
-    title: shareTitle,
-    imageUrl: shareImage
-  };
+function getShareFriendInfo(): ShareAppMessageReturn {
+  return newYear.shareFriendInfo;
+}
+
+function getShareTimelineInfo(): ShareTimelineReturnObject {
+  return newYear.shareTimelineInfo;
 }
 
 function getMaskList(): WXAvatar.Mask[] {
-  return maskList;
+  return newYear.maskList;
 }
 
 export default {
-  getShareInfo,
+  getShareFriendInfo,
+  getShareTimelineInfo,
   getMaskList
 };

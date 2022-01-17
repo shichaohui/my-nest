@@ -37,10 +37,10 @@ const WXAvatar: FC<{}> = () => {
   const avatarPainterInstanceRef = useRef<AvatarPainterInstance>(null);
 
   // 分享给好友
-  useShareAppMessage(() => config.getShareInfo());
+  useShareAppMessage(() => config.getShareFriendInfo());
 
   // 分享到朋友圈
-  useShareTimeline(() => config.getShareInfo());
+  useShareTimeline(() => config.getShareTimelineInfo());
 
   // 获取用户信息
   const handleGetUserInfo = useCallback(async () => {
