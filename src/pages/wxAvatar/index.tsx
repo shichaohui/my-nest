@@ -57,14 +57,15 @@ const WXAvatar: FC<{}> = () => {
         prevAvatarTouchEventRef.current = event;
         return;
       }
-      const startTouch = prevAvatarTouchEventRef.current.touches[0];
+      const prevTouch = prevAvatarTouchEventRef.current.touches[0];
       const touch = event.touches[0];
+      requestAnimationFrame(() => {});
       setAvatarPosition(position => ({
-        top: position.top + touch.pageY - startTouch.pageY,
-        left: position.left + touch.pageX - startTouch.pageX
+        top: position.top + touch.pageY - prevTouch.pageY,
+        left: position.left + touch.pageX - prevTouch.pageX
       }));
       prevAvatarTouchEventRef.current = event;
-    }, 66);
+    }, 33);
   }, []);
 
   // 触摸头像结束
