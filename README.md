@@ -1,5 +1,14 @@
 # my-nest
-Some of my mess
+
+生活中的便捷工具小程序
+
+## 体验
+
+![狗窝Sch](https://s4.ax1x.com/2022/01/20/7cnH0S.jpg)
+
+## 开发
+
+[开发文档](./README_DEV.md)
 
 ## License
 
