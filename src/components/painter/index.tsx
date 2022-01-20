@@ -133,7 +133,7 @@ const Painter: FC<PainterProps> = props => {
     onDidShow,
     use2D,
     onImgOK,
-    onImgErr
+    onImgErr,
   } = props;
 
   return (

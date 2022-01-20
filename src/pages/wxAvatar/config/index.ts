@@ -16,5 +16,5 @@ function getMaskList(): WXAvatar.Mask[] {
 export default {
   getShareFriendInfo,
   getShareTimelineInfo,
-  getMaskList
+  getMaskList,
 };

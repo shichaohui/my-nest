@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '狗窝'
+  navigationBarTitleText: '狗窝',
 };

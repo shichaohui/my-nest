@@ -8,13 +8,13 @@ import throttle from '@/utils/throttle';
 import style from './index.module.scss';
 import AvatarPainter, {
   AvatarPainterInstance,
-  AvatarPosition
+  AvatarPosition,
 } from './AvatarPainter';
 import config from './config';
 
 const initAvatarPosition: AvatarPosition = {
   top: 0,
-  left: 0
+  left: 0,
 };
 
 /** 微信头像 */
@@ -32,7 +32,7 @@ const WXAvatar: FC<{}> = () => {
   const prevAvatarTouchEventRef = useRef<ITouchEvent>();
   // 头像位置
   const [avatarPosition, setAvatarPosition] = useState<AvatarPosition>(
-    initAvatarPosition
+    initAvatarPosition,
   );
   // 头像绘制组件
   const avatarPainterInstanceRef = useRef<AvatarPainterInstance>(null);
@@ -46,7 +46,7 @@ const WXAvatar: FC<{}> = () => {
   // 获取用户信息
   const handleGetUserInfo = useCallback(async () => {
     const { userInfo } = await Taro.getUserProfile({
-      desc: '该操作需要获取你的公开信息'
+      desc: '该操作需要获取你的公开信息',
     });
     setAvatarUrl(userInfo.avatarUrl.replace(/132$/, '0'));
   }, []);
@@ -63,7 +63,7 @@ const WXAvatar: FC<{}> = () => {
       requestAnimationFrame(() => {});
       setAvatarPosition(position => ({
         top: position.top + touch.pageY - prevTouch.pageY,
-        left: position.left + touch.pageX - prevTouch.pageX
+        left: position.left + touch.pageX - prevTouch.pageX,
       }));
       prevAvatarTouchEventRef.current = event;
     }, 33);
@@ -81,14 +81,14 @@ const WXAvatar: FC<{}> = () => {
       setAvatarMask(avatarMaskList[index]);
       setAvatarPosition(initAvatarPosition);
     },
-    [avatarMaskList]
+    [avatarMaskList],
   );
 
   // 保存原头像
   const handleSaveOriginalAvatar = useCallback(() => {
     Taro.downloadFile({
       url: avatarUrl,
-      success: res => saveImageToPhotosAlbum(res.tempFilePath)
+      success: res => saveImageToPhotosAlbum(res.tempFilePath),
     });
   }, [avatarUrl]);
 
@@ -103,7 +103,7 @@ const WXAvatar: FC<{}> = () => {
         className={style.preview}
         style={{
           width: `${avatarPreviewSize}px`,
-          height: `${avatarPreviewSize}px`
+          height: `${avatarPreviewSize}px`,
         }}
       >
         <LazyImage

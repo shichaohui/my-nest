@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '微信头像'
+  navigationBarTitleText: '微信头像',
 };

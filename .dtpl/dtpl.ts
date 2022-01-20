@@ -20,13 +20,13 @@ export default function(source: _.Source): _.IDtplConfig {
             {
               file: path.join(rootPath, 'src/app.config.ts'),
               data: {
-                page: `'${dirName}/${rawModuleName}/index',`
+                page: `'${dirName}/${rawModuleName}/index',`,
               },
               tags: 'loose',
-              append: true
-            }
+              append: true,
+            },
           ];
-        }
+        },
       },
       // 组件模板配置
       {
@@ -36,13 +36,13 @@ export default function(source: _.Source): _.IDtplConfig {
           if (!/^components?$/.test(dirName)) return false;
           if (!/^[A-Z]/.test(rawModuleName)) return false;
           return true;
-        }
-      }
+        },
+      },
     ],
     globalData: {
       projectName: 'my-nest',
       // React 组件名称
-      reactComponentName: `${fileName[0].toUpperCase()}${fileName.slice(1)}`
-    }
+      reactComponentName: `${fileName[0].toUpperCase()}${fileName.slice(1)}`,
+    },
   };
 }

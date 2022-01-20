@@ -8,8 +8,8 @@ const toolList: Tool[] = [
   {
     name: '微信头像',
     desc: '快速生成符合节日气氛的微信头像',
-    page: '/pages/wxAvatar/index'
-  }
+    page: '/pages/wxAvatar/index',
+  },
 ];
 
 /**
@@ -19,13 +19,13 @@ const Index: FC<{}> = () => {
   // 分享给好友
   useShareAppMessage(() => ({
     title: '狗窝Sch：生活中的便捷小工具',
-    imageUrl: 'https://s4.ax1x.com/2022/01/17/7UUj0g.png'
+    imageUrl: 'https://s4.ax1x.com/2022/01/17/7UUj0g.png',
   }));
 
   // 分享到朋友圈
   useShareTimeline(() => ({
     title: '狗窝Sch：生活中的便捷小工具',
-    imageUrl: 'https://s4.ax1x.com/2022/01/17/7UUZWt.png'
+    imageUrl: 'https://s4.ax1x.com/2022/01/17/7UUZWt.png',
   }));
 
   // 点击工具
@@ -33,7 +33,7 @@ const Index: FC<{}> = () => {
     const { index } = event.currentTarget.dataset;
     const { page } = toolList[index];
     Taro.navigateTo({
-      url: page
+      url: page,
     });
   }, []);
 

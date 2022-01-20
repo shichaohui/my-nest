@@ -2,14 +2,14 @@ import Taro from '@tarojs/taro';
 import Painter, {
   IPainterImgErrEvent,
   IPainterImgOKEvent,
-  IPalette
+  IPalette,
 } from '@/components/painter';
 import {
   forwardRef,
   useCallback,
   useImperativeHandle,
   useMemo,
-  useState
+  useState,
 } from 'react';
 import { saveImageToPhotosAlbum } from '@/utils/image';
 import { toastError } from '@/utils/toast';
@@ -42,7 +42,7 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
       avatarUrl,
       avatarMask,
       avatarPosition,
-      avatarPositionRate
+      avatarPositionRate,
     } = props;
 
     // 是否绘制
@@ -53,7 +53,7 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
       draw: () => {
         Taro.showLoading({ title: '头像生成中...' });
         setDrawing(true);
-      }
+      },
     }));
 
     // 配置
@@ -73,8 +73,8 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
               width: _size,
               height: _size,
               top: `${avatarPosition.top * avatarPositionRate}px`,
-              left: `${avatarPosition.left * avatarPositionRate}px`
-            }
+              left: `${avatarPosition.left * avatarPositionRate}px`,
+            },
           },
           {
             type: 'image',
@@ -83,10 +83,10 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
               width: _size,
               height: _size,
               top: '0px',
-              left: '0px'
-            }
-          }
-        ]
+              left: '0px',
+            },
+          },
+        ],
       };
     }, [
       isDrawing,
@@ -95,7 +95,7 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
       avatarPosition.top,
       avatarPosition.left,
       avatarPositionRate,
-      avatarMask
+      avatarMask,
     ]);
 
     // 生成图片成功
@@ -120,7 +120,7 @@ const AvatarPainter = forwardRef<AvatarPainterInstance, AvatarPainterProps>(
         onImgErr={handlePaintAvatarError}
       />
     );
-  }
+  },
 );
 
 export default AvatarPainter;

@@ -10,7 +10,7 @@ export async function saveImageToPhotosAlbum(filePath: string) {
     console.error(err);
     const errMsgs = {
       'saveImageToPhotosAlbum:fail auth deny': '无相册权限',
-      'saveImageToPhotosAlbum:fail cancel': '已取消保存'
+      'saveImageToPhotosAlbum:fail cancel': '已取消保存',
     };
     toastError({ title: errMsgs[err.errMsg] || '保存失败' });
   }

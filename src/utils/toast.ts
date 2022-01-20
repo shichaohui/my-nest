@@ -6,7 +6,7 @@ type Option = Omit<Taro.showToast.Option, 'icon'>;
 export function toast(option: Option) {
   return Taro.showToast({
     ...option,
-    icon: 'none'
+    icon: 'none',
   });
 }
 
@@ -14,7 +14,7 @@ export function toast(option: Option) {
 export function toastSuccess(option: Option) {
   return Taro.showToast({
     ...option,
-    icon: 'success'
+    icon: 'success',
   });
 }
 
@@ -22,7 +22,7 @@ export function toastSuccess(option: Option) {
 export function toastError(option: Option) {
   return Taro.showToast({
     ...option,
-    icon: 'error'
+    icon: 'error',
   });
 }
 
@@ -30,6 +30,6 @@ export function toastError(option: Option) {
 export function toastLoading(option: Option) {
   return Taro.showToast({
     ...option,
-    icon: 'loading'
+    icon: 'loading',
   });
 }
