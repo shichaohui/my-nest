@@ -1,0 +1,20 @@
+/**
+ * ${ref.reactComponentName} 组件
+ * @Author StoneHui
+ * @Date ${datetime}
+ */
+
+import { FC } from 'react';
+import { View } from '@tarojs/components';
+import style from './index.module.scss';
+
+export interface ${ref.reactComponentName}Props {
+}
+
+const ${ref.reactComponentName}: FC<${ref.reactComponentName}Props> = (props) => {
+  const {} = props
+
+  return <View className={style.page}></View>
+}
+
+export default ${ref.reactComponentName}

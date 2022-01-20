@@ -1,5 +1,10 @@
 export default {
-  pages: ['pages/index/index', 'pages/wxAvatar/index'],
+  pages: [
+    /*# INJECT_START {"key": "page"} #*/
+    'pages/index/index',
+    'pages/wxAvatar/index'
+    /*# INJECT_END #*/
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

@@ -1,0 +1,7 @@
+/**
+ * ${ref.reactComponentName} 页面样式
+ * @Author StoneHui
+ * @Date ${datetime}
+ */
+
+@import '@/styles/common.scss';

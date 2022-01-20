@@ -1,0 +1,15 @@
+/**
+ * ${ref.reactComponentName} 页面
+ * @Author StoneHui
+ * @Date ${datetime}
+ */
+
+import { FC } from 'react';
+import { View } from '@tarojs/components';
+import style from './index.module.scss';
+
+const ${ref.reactComponentName}: FC<{}> = () => {
+  return <View className={style.page}></View>
+}
+
+export default ${ref.reactComponentName}
