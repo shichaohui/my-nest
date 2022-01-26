@@ -47,7 +47,7 @@ const Index: FC<{}> = () => {
           onClick={handleClickTool}
         >
           <View className={style.name}>{tool.name}</View>
-          <Text className={style.desc}>{tool.desc}</Text>
+          <View className={style.desc}>{tool.desc}</View>
         </View>
       ))}
     </View>
