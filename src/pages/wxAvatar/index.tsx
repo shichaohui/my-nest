@@ -74,6 +74,17 @@ const WXAvatar: FC<{}> = () => {
     prevAvatarTouchEventRef.current = undefined;
   }, []);
 
+  // 选择自定义挂件
+  const handleCustomAvatarMask = useCallback(async () => {
+    const { tempFilePaths } = await Taro.chooseImage({ count: 1 });
+    Taro.eventCenter.once('cropSuccess', path => {
+      setAvatarMask({ url: path, thumbnail: '' });
+    });
+    Taro.navigateTo({
+      url: `/pages/cropImage/index?url=${tempFilePaths[0]}`,
+    });
+  }, []);
+
   // 选择挂件
   const handleClickAvatarMask = useCallback(
     (event: ITouchEvent) => {
@@ -116,6 +127,9 @@ const WXAvatar: FC<{}> = () => {
         <LazyImage className={style.avatarMask} src={avatarMask.url} />
       </View>
       <View className={style.avatarMaskList}>
+        <View className={style.avatarMask} onClick={handleCustomAvatarMask}>
+          自定义
+        </View>
         {avatarMaskList.map((item, index) => (
           <LazyImage
             key={item.thumbnail}

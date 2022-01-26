@@ -3,6 +3,7 @@ export default {
     /*# INJECT_START {"key": "page"} #*/
     'pages/index/index',
     'pages/wxAvatar/index',
+    'pages/cropImage/index',
     /*# INJECT_END #*/
   ],
   window: {

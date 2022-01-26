@@ -12272,6 +12272,11 @@ tar@^6.0.2:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
+taro-cropper@^1.2.3:
+  version "1.2.3"
+  resolved "http://172.26.59.72:4873/taro-cropper/-/taro-cropper-1.2.3.tgz#c790525083805caa732faa6fd2efe8a3fd8f04cc"
+  integrity sha1-x5BSUIOAXKpzL6pv0u/oo/2PBMw=
+
 taro-css-to-react-native@3.3.19:
   version "3.3.19"
   resolved "http://172.26.59.72:4873/taro-css-to-react-native/-/taro-css-to-react-native-3.3.19.tgz#19ae403ce101fee7f77470c081c1209e3d86b711"

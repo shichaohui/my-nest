@@ -61,7 +61,7 @@ const config = {
         },
       },
     },
-    esnextModules: ['taro-ui'],
+    esnextModules: ['taro-ui', 'taro-cropper'],
   },
 };
 
