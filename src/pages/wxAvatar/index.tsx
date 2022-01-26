@@ -76,12 +76,16 @@ const WXAvatar: FC<{}> = () => {
 
   // 选择自定义挂件
   const handleCustomAvatarMask = useCallback(async () => {
-    const { tempFilePaths } = await Taro.chooseImage({ count: 1 });
+    const { tempFiles } = await Taro.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album'],
+    });
     Taro.eventCenter.once('cropSuccess', path => {
       setAvatarMask({ url: path, thumbnail: '' });
     });
     Taro.navigateTo({
-      url: `/pages/cropImage/index?url=${tempFilePaths[0]}`,
+      url: `/pages/cropImage/index?url=${tempFiles[0].tempFilePath}`,
     });
   }, []);
 
