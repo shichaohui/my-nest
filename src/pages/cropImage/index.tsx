@@ -29,6 +29,7 @@ const CropImage: FC<{}> = () => {
       <TaroCropper
         themeColor="#f58220"
         fullScreen
+        fullScreenCss
         cropperWidth={avatarMaskCropSize}
         cropperHeight={avatarMaskCropSize}
         hideCancelText={false}
